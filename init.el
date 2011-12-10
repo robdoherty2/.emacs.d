@@ -1,3 +1,10 @@
+(require 'color-theme)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-classic)))
+
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -26,13 +33,6 @@
 (add-to-list 'auto-mode-alist '("\\.twig$" . django-html-mumamo-mode))
 ;; auto-load django-html-mumano for twig files
 ;; (setq auto-mode-alist (cons '("\\.twig$" . django-html-mumano-mode) auto-mode-alist))
-
-
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-classic)))
 
 (delete-selection-mode t)
 
