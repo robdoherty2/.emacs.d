@@ -1,15 +1,15 @@
-<<<<<<< HEAD
+
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
      (color-theme-classic)))
 
-=======
+
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
->>>>>>> 91d6ea9c4c5f5212a11b1db46266c83fadbe97f0
+
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
