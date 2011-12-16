@@ -1,3 +1,19 @@
+;; turn off welcome screen
+(setq inhibit-startup-message t) 
+
+
+;; turn on fancy prompts in the shell
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; leave a breadcrumb trail
+(defun mo-insert-find-breadcrumb ()
+ (interactive)
+ (setq current-point (point))
+ (goto-char (point-min))
+ (if (search-forward ";;breadcrumb" nil t) ()
+   (progn
+     (goto-char current-point)
+     (insert ";;breadcrumb"))))
 
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -41,6 +57,10 @@
 ;; (setq auto-mode-alist (cons '("\\.twig$" . django-html-mumano-mode) auto-mode-alist))
 
 (delete-selection-mode t)
+
+;; set frame size and position
+(set-frame-size (selected-frame) 199 51)
+(set-frame-position (selected-frame) 50 80)
 
 ;; fix Copy/Paste Clipboard Issues:
 (global-set-key "\C-w" 'clipboard-kill-region)
