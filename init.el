@@ -1,6 +1,8 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
+;; use C-h as backspace key
+(global-set-key "\C-h" 'backward-delete-char)
 
 ;; turn on fancy prompts in the shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
