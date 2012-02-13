@@ -49,12 +49,12 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; the following lines enable modes for symfony projects
-(add-to-list 'load-path "~/.emacs.d/eproject")
-(require 'eproject)
-(load "~/.emacs.d/nxhtml/autostart.el")
-(setq mumamo-background-colors nil) 
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.twig$" . django-html-mumamo-mode))
+;;(add-to-list 'load-path "~/.emacs.d/eproject")
+;;(require 'eproject)
+;;(load "~/.emacs.d/nxhtml/autostart.el")
+;;(setq mumamo-background-colors nil) 
+;;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+;;(add-to-list 'auto-mode-alist '("\\.twig$" . django-html-mumamo-mode))
 ;; auto-load django-html-mumano for twig files
 ;; (setq auto-mode-alist (cons '("\\.twig$" . django-html-mumano-mode) auto-mode-alist))
 
