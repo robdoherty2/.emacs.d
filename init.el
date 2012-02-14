@@ -17,12 +17,13 @@
      (goto-char current-point)
      (insert ";;breadcrumb"))))
 
+
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
      (color-theme-classic)))
-
+(add-to-list 'load-path "~/.emacs.d/color-theme.el")
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -42,11 +43,11 @@
   ;; If there is more than one, they won't work right.
  )
 (global-linum-mode 1)
-(add-to-list 'load-path "~/.emacs.d/color-theme.el")
 
-;;(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
+;(autoload 'js2-mode "js2" nil t)
+;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; the following lines enable modes for symfony projects
 ;;(add-to-list 'load-path "~/.emacs.d/eproject")
@@ -73,7 +74,7 @@
 ;;(global-set-key [(shift insert)] 'clipboard-yank)
 
 ;;set to php-mode
-(require 'php-mode)
+;(require 'php-mode)
 
 ;; set default tab width to 4 spaces
 (setq-default indent-tabs-mode nil)
@@ -81,9 +82,9 @@
 ;; customize c-default style variable
 (setq-default c-basic-offset 4)
 
-(add-to-list 'load-path "~/.emacs.d/symfony.el")
-(add-to-list 'load-path "~/.emacs.d/sf.el")
-(require 'sf)
+;(add-to-list 'load-path "~/.emacs.d/symfony.el")
+;(add-to-list 'load-path "~/.emacs.d/sf.el")
+;(require 'sf)
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; systems
