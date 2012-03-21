@@ -1,6 +1,9 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
+;; show trailing whitespaces
+(setq show-ws-toggle-show-trailing-whitespace t)
+
 ;; use C-h as backspace key
 (global-set-key "\C-h" 'backward-delete-char)
 
@@ -17,6 +20,8 @@
      (goto-char current-point)
      (insert ";;breadcrumb"))))
 
+;(autoload 'js2-mode "/.emacs.d/js2.elc" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -29,12 +34,22 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+; python mode use tabs instead of spaces
+(add-hook 'python-mode-hook
+	  (lambda () (setq indent-tabs-mode t)))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(js-indent-level 8)
+ '(js2-basic-offset 8)
+ '(js2-cleanup-whitespace t)
+ '(speedbar-default-position (quote left))
+ '(speedbar-frame-parameters (quote ((minibuffer) (width . 35) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
+ '(speedbar-mode-hook nil)
+ '(speedbar-select-frame-method 1)
  '(word-wrap t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -44,20 +59,8 @@
  )
 (global-linum-mode 1)
 
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 ;(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
-;(autoload 'js2-mode "js2" nil t)
-;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; the following lines enable modes for symfony projects
-;;(add-to-list 'load-path "~/.emacs.d/eproject")
-;;(require 'eproject)
-;;(load "~/.emacs.d/nxhtml/autostart.el")
-;;(setq mumamo-background-colors nil) 
-;;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-;;(add-to-list 'auto-mode-alist '("\\.twig$" . django-html-mumamo-mode))
-;; auto-load django-html-mumano for twig files
-;; (setq auto-mode-alist (cons '("\\.twig$" . django-html-mumano-mode) auto-mode-alist))
 
 (delete-selection-mode t)
 
@@ -76,15 +79,11 @@
 ;;set to php-mode
 ;(require 'php-mode)
 
-;; set default tab width to 4 spaces
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+;; set default tab width to 8 spaces
+;;(setq-default indent-tabs-mode nil)
+;;(setq-default tab-width 8)
 ;; customize c-default style variable
-(setq-default c-basic-offset 4)
-
-;(add-to-list 'load-path "~/.emacs.d/symfony.el")
-;(add-to-list 'load-path "~/.emacs.d/sf.el")
-;(require 'sf)
+;;(setq-default c-basic-offset 4)
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; systems
