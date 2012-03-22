@@ -36,7 +36,8 @@
 
 ; python mode use tabs instead of spaces
 (add-hook 'python-mode-hook
-	  (lambda () (setq indent-tabs-mode t)))
+	  (lambda () (setq indent-tabs-mode t)
+	    (setq python-indent 8)))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -46,10 +47,11 @@
  '(js-indent-level 8)
  '(js2-basic-offset 8)
  '(js2-cleanup-whitespace t)
- '(speedbar-default-position (quote left))
+ '(speedbar-default-position (quote left-right))
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 35) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
  '(speedbar-mode-hook nil)
- '(speedbar-select-frame-method 1)
+ '(speedbar-select-frame-method (quote (quote attached)))
+ '(speedbar-visiting-file-hook nil)
  '(word-wrap t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
