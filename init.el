@@ -1,6 +1,9 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
+;; set default font
+(set-face-attribute 'default nil :height 80)
+
 ;; show trailing whitespaces
 (setq show-ws-toggle-show-trailing-whitespace t)
 
@@ -22,6 +25,8 @@
 
 ;(autoload 'js2-mode "/.emacs.d/js2.elc" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;autoload html-mode for mustache templates
+(add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
 
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -61,13 +66,10 @@
  )
 (global-linum-mode 1)
 
-;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-;(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
-
 (delete-selection-mode t)
 
 ;; set frame size and position
-(set-frame-size (selected-frame) 199 51)
+(set-frame-size (selected-frame) 250 71)
 (set-frame-position (selected-frame) 50 80)
 
 ;; fix Copy/Paste Clipboard Issues:
