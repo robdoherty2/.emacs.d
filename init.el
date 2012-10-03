@@ -1,3 +1,8 @@
+;; load paths
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
+;;(add-to-list 'load-path "~/.emacs.d/")
+
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
@@ -23,17 +28,14 @@
      (goto-char current-point)
      (insert ";;breadcrumb"))))
 
-;(autoload 'js2-mode "/.emacs.d/js2.elc" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-;autoload html-mode for mustache templates
-(add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
-
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
      (color-theme-classic)))
-(add-to-list 'load-path "~/.emacs.d/color-theme.el")
+
+;; speedbar sidebar
+(load-file "~/.emacs.d/sr-speedbar.el") 
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
