@@ -6,8 +6,11 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
+;; set cursor type
+(setq-default cursor-type 'bar)
+
 ;; set default font
-(set-face-attribute 'default nil :height 80)
+(set-default-font "Monospace-8")
 
 ;; show trailing whitespaces
 (setq show-ws-toggle-show-trailing-whitespace t)
@@ -17,6 +20,9 @@
 
 ;; turn on fancy prompts in the shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; git 
+(load-file "~/.emacs.d/git.el")
 
 ;; leave a breadcrumb trail
 (defun mo-insert-find-breadcrumb ()
