@@ -10,7 +10,7 @@
 (setq-default cursor-type 'bar)
 
 ;; set default font
-(set-default-font "Monospace-8")
+(set-default-font "Monospace-7.5")
 
 ;; show trailing whitespaces
 (setq show-ws-toggle-show-trailing-whitespace t)
@@ -23,16 +23,6 @@
 
 ;; git 
 (load-file "~/.emacs.d/git.el")
-
-;; leave a breadcrumb trail
-(defun mo-insert-find-breadcrumb ()
- (interactive)
- (setq current-point (point))
- (goto-char (point-min))
- (if (search-forward ";;breadcrumb" nil t) ()
-   (progn
-     (goto-char current-point)
-     (insert ";;breadcrumb"))))
 
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -47,10 +37,19 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-; python mode use tabs instead of spaces
+;; python mode use tabs instead of spaces
 (add-hook 'python-mode-hook
 	  (lambda () (setq indent-tabs-mode t)
 	    (setq python-indent 8)))
+
+;; function for fullscreen
+(defun toggle-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+					   nil
+					 'fullboth)))
+(global-set-key [(meta return)] 'toggle-fullscreen)
+
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
