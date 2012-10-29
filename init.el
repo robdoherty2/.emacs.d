@@ -1,7 +1,19 @@
 ;; load paths
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
-;;(add-to-list 'load-path "~/.emacs.d/")
+
+(add-to-list 'load-path "~/.emacs.d/scala-mode/")
+(require 'scala-mode-auto)
+(add-hook 'scala-mode-hook
+	  '(lambda ()
+	     (scala-mode-feature-electric-mode)
+	     ))
+(require 'scala-mode)
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(add-to-list 'load-path "~/.emacs.d/site-lisp/ensime/elisp/")
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
 
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
@@ -22,7 +34,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; git 
-(load-file "~/.emacs.d/git.el")
+;; (load-file "~/.emacs.d/git.el")
 
 (require 'color-theme)
 (eval-after-load "color-theme"
