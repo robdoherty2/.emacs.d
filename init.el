@@ -7,7 +7,7 @@
 (setq inhibit-startup-message t) 
 
 ;; set cursor type
-(setq-default cursor-type 'bar)
+;;(setq-default cursor-type 'bar)
 
 ;; set default font
 (set-default-font "Monospace-7.5")
