@@ -14,7 +14,6 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
@@ -32,9 +31,6 @@
 
 ;; turn on fancy prompts in the shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-;; git 
-;; (load-file "~/.emacs.d/git.el")
 
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -62,6 +58,9 @@
 					 'fullboth)))
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
+;; set frame size and position
+(set-frame-size (selected-frame) 300 110)
+(set-frame-position (selected-frame) 50 25)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -87,9 +86,6 @@
 
 (delete-selection-mode t)
 
-;; set frame size and position
-(set-frame-size (selected-frame) 250 71)
-(set-frame-position (selected-frame) 50 80)
 
 ;; fix Copy/Paste Clipboard Issues:
 (global-set-key "\C-w" 'clipboard-kill-region)
