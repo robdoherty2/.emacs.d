@@ -17,6 +17,12 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
+;; marmalade
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;; set cursor type
 ;;(setq-default cursor-type 'bar)
 
@@ -59,8 +65,8 @@
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
 ;; set frame size and position
-(set-frame-size (selected-frame) 300 110)
-(set-frame-position (selected-frame) 50 25)
+(set-frame-size (selected-frame) 300 100)
+;;(set-frame-position (selected-frame) 40 20)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
