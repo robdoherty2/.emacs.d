@@ -17,12 +17,6 @@
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
 
-;; marmalade
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
 ;; set cursor type
 ;;(setq-default cursor-type 'bar)
 
@@ -35,17 +29,26 @@
 ;; use C-h as backspace key
 (global-set-key "\C-h" 'backward-delete-char)
 
-;; turn on fancy prompts in the shell
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;;(add-hook 'after-make-frame-functions
+;;	  (lambda ()
+;;(when window-system
+(when (display-graphic-p)
+  (set-frame-size (selected-frame) 300 95)
+  (require 'color-theme)
+  ;;(eval-after-load "color-theme"
+  (progn
+    (color-theme-initialize)
+    (color-theme-classic)))
 
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-classic)))
+;; (require 'color-theme)
+;;(eval-after-load "color-theme"
+;;  '(progn
+;;     (color-theme-initialize)
+;;     (color-theme-classic)))
+;;(set-frame-size (selected-frame) 300 100)
 
 ;; speedbar sidebar
-(load-file "~/.emacs.d/sr-speedbar.el") 
+;; (load-file "~/.emacs.d/sr-speedbar.el") 
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -81,8 +84,6 @@
 					 'fullboth)))
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
-;; set frame size and position
-(set-frame-size (selected-frame) 300 100)
 ;;(set-frame-position (selected-frame) 40 20)
 
 (custom-set-variables
