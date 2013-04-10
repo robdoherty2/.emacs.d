@@ -29,26 +29,12 @@
 ;; use C-h as backspace key
 (global-set-key "\C-h" 'backward-delete-char)
 
-;;(add-hook 'after-make-frame-functions
-;;	  (lambda ()
-;;(when window-system
 (when (display-graphic-p)
   (set-frame-size (selected-frame) 300 95)
   (require 'color-theme)
-  ;;(eval-after-load "color-theme"
   (progn
     (color-theme-initialize)
     (color-theme-classic)))
-
-;; (require 'color-theme)
-;;(eval-after-load "color-theme"
-;;  '(progn
-;;     (color-theme-initialize)
-;;     (color-theme-classic)))
-;;(set-frame-size (selected-frame) 300 100)
-
-;; speedbar sidebar
-;; (load-file "~/.emacs.d/sr-speedbar.el") 
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -84,8 +70,6 @@
 					 'fullboth)))
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
-;;(set-frame-position (selected-frame) 40 20)
-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,6 +90,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
 (global-linum-mode 1)
 
 (delete-selection-mode t)
@@ -127,14 +112,6 @@
 (defconst graf
   (not (eq window-system 'nil))
   "Are we running on Windows system?")
-
-;;;;;;;;;;;;;;;;;;;;
-;; set up unicode
-;;(prefer-coding-system       'utf-8)
-;; This from a japanese coder.
-;;(setq default-buffer-file-coding-system 'utf-8)
-;; From Emacs wiki
-;;(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
 (when linux
   (set-clipboard-coding-system 'koi8-u)
