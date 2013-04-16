@@ -1,7 +1,7 @@
 ;; load paths
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
-
+(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/scala-mode/")
 (require 'scala-mode-auto)
 (add-hook 'scala-mode-hook
@@ -18,7 +18,10 @@
 (setq inhibit-startup-message t) 
 
 ;; set cursor type
-;;(setq-default cursor-type 'bar)
+;;(setq-default cursor-type 'box)
+(require 'cursor-chg)  ; Load this library
+(change-cursor-mode 1) ; On for overwrite/read-only/input mode
+(toggle-cursor-type-when-idle 1) ; On when idle
 
 ;; set default font
 (set-default-font "Monospace-7.5")
