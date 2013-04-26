@@ -1,11 +1,12 @@
+;; add package archive links
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-
+;; enable ido-mode
 (require 'ido)
 (ido-mode t)
-
+;; color shell text
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -58,10 +59,7 @@
 
 (when (display-graphic-p)
   (set-frame-size (selected-frame) 300 95)
-  (require 'color-theme)
-  (progn
-    (color-theme-initialize)
-    (color-theme-classic)))
+  (load-theme 'zenburn t))
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -98,10 +96,11 @@
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(js-indent-level 8)
  '(js2-basic-offset 8)
  '(js2-cleanup-whitespace t)
@@ -112,10 +111,10 @@
  '(speedbar-visiting-file-hook nil)
  '(word-wrap t))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (global-linum-mode 1)
