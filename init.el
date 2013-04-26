@@ -23,6 +23,9 @@
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 
+;; ipython
+(add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
+
 ;; load paths
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
@@ -57,9 +60,14 @@
 ;; use C-h as backspace key
 (global-set-key "\C-h" 'backward-delete-char)
 
+;; when in gui mode
+(defun zenburn-init ()
+  (load-theme 'zenburn t)
+  )
+
 (when (display-graphic-p)
   (set-frame-size (selected-frame) 300 95)
-  (load-theme 'zenburn t))
+  (add-hook 'after-init-hook 'zenburn-init))
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
