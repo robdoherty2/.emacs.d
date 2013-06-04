@@ -17,11 +17,12 @@
     (let (el-get-master-branch)
       (goto-char (point-max))
       (eval-print-last-sexp))))
-(el-get 'sync)
+(el-get'sync)
 
 ;;enable jedi auto-complete for python
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
+(global-auto-complete-mode t)
 
 ;; ipython
 (add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
