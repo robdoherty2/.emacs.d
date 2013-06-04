@@ -22,7 +22,7 @@
 ;;enable jedi auto-complete for python
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
-(global-auto-complete-mode t)
+;;(global-auto-complete-mode t)
 
 ;; ipython
 (add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
