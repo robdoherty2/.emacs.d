@@ -30,17 +30,27 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
 (add-to-list 'load-path "~/.emacs.d/")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; scala ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/scala-mode/")
+(require 'scala-mode)
 (require 'scala-mode-auto)
 (add-hook 'scala-mode-hook
 	  '(lambda ()
 	     (scala-mode-feature-electric-mode)
 	     ))
-(require 'scala-mode)
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ensime/elisp/")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;; scala REPL
+(push "/opt/scala-2.10.1/bin/" exec-path)
+;; sbt REPL
+(push "/home/rob/sbt/bin/" exec-path)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; turn off welcome screen
 (setq inhibit-startup-message t) 
