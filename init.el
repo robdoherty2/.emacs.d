@@ -63,7 +63,7 @@
 (toggle-cursor-type-when-idle 1) ; On when idle
 
 ;; set default font
-(set-default-font "Monospace-7.5")
+(set-default-font "Monospace-8.5")
 
 ;; show trailing whitespaces
 (setq show-ws-toggle-show-trailing-whitespace t)
