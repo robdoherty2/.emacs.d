@@ -19,6 +19,10 @@
       (eval-print-last-sexp))))
 (el-get'sync)
 
+;; windmove, move point from window to window using Shift and the arrow keys
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ;;enable jedi auto-complete for python
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
